@@ -48,9 +48,49 @@ const producto = [
     }
 ]
 let total = 0;
+let mayor = 0;
+let productomayor = "";
 
 for (let i = 0; i < producto.length; i++) {
-    total += producto[i].precio * producto[i].stock;
+
+    let inversion = producto[i].precio * producto[i].stock;
+
+    total += inversion;
+
+    if (inversion > mayor) {
+        mayor = inversion;
+        productomayor = producto[i].nombre;
+    }
 }
 
 console.log(`Se invirtieron $${total} en todos los productos`);
+console.log(`Se invirtió más en: ${productomayor}`);
+console.log(`La inversión fue de $${mayor}`);
+let menor = producto[0].precio;
+let productoeconomico = producto[0].nombre;
+
+for (let i = 1; i < producto.length; i++) {
+
+    if (producto[i].precio < menor) {
+        menor = producto[i].precio;
+        productoeconomico = producto[i].nombre;
+    }
+}
+
+console.log(`El producto más económico es: ${productoeconomico}`);
+console.log(`Su precio es de $${menor}`);
+
+let caro = producto[0].precio;
+let productomascaro = producto[0].nombre;
+
+for (let i = 1; i < producto.length; i++) {
+
+    if (producto[i].precio > caro) {
+        caro = producto[i].precio;
+        productomascaro = producto[i].nombre;
+    }
+ 
+}
+
+console.log(`El producto más caro es: ${productomascaro}`);
+console.log(`Su precio es de $${caro}`);
